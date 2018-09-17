@@ -1,0 +1,63 @@
+<%= form_with(model: cadastro, local: true) do |form| %>
+  <% if cadastro.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(cadastro.errors.count, "error") %> prohibited this cadastro from being saved:</h2>
+
+      <ul>
+      <% cadastro.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+  
+  <div class="row">
+        <div class="input-field col s3"></br>
+        <%= form.label :name %>
+        <%= form.text_field :name %>
+  </div>
+  </div>
+  
+
+  <div class="row">
+    <div class="input-field col s3">
+   
+    <%= form.label :data %>
+    <%= form.date_select :data %><br>
+    <input id="date" type="date" class="validate">
+  </div>
+  </div>
+
+
+  <div class="row">
+   <div class="input-field col s3">
+    <%= form.label :hour %>
+    <%= form.time_select :hour %> </br>
+    <input id="hour" type="time" class="validate">
+  </div>
+  </div>
+
+
+  <div class="row">
+  <div class="input-field col s3"></br>
+        
+    <%= form.label :value %>
+    <%= form.text_field :value %>
+  </div>
+  </div>
+
+
+  <div class="row">
+      <div class="input-field col s3"></br>
+            
+        <%= form.label :descricao %>
+        <%= form.text_field :descricao %>
+      </div>
+      </div>
+
+
+  <div class="actions">
+  <button style="left: 10px;;" class="btn waves-effect waves-light" type="submit" name="action" >
+  <%= form.submit "Save" %></button>
+  </div>
+<% end %>

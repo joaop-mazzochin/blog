@@ -1,0 +1,88 @@
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+
+    <p id="notice"><%= notice %></p>
+
+    <div>
+    <nav class="nav-extended" style="width:100%;" >
+      
+            
+        <a href="#!" class="brand-logo">Home</a><br>
+        <% @cadastros.each do |cadastro|  %>
+        <%= link_to cadastro.name, cadastro %>
+
+        
+       
+        <ul class="top hide-on-med-and-down">
+            
+          
+            
+        </ul>
+        <% end %>
+
+
+        
+        
+      
+      <div class="nav-content">
+        <span class="nav-title"> </span>
+        
+        <a class="btn-floating btn-large halfway-fab waves-effect waves-light teal"
+        <%= link_to '+', new_cadastro_path %></a>
+        
+        
+            
+        </div>
+         
+        <div style="background-color: black; margin-bottom: 100%"> 
+            <% @cadastros.each do |cadastro| %>
+    
+            <div>
+                  <div class="row" style="width: 60%;">
+                    <div class="col s12 m12">
+                      <div class="card blue-grey darken-1">
+                        <div class="card-content white-text">
+                          <span class="card-title"><%= cadastro.name %></span>
+                          
+                          <span>Data Lançamento: <%= cadastro.data %></span><br>
+                          <span>Horário da Sessão <%= cadastro.hour.strftime("at %H:%M %Z") %></span><br>
+                          <span>Valor da Sessão: <%= + "$ " + cadastro.value + ",00"  %></span><br><br>
+                          <span>Descrição: <%= cadastro.descricao  %></span><br>
+                        </div>
+                        <div class="card-action">
+                          
+                          <a href="#"><%= link_to 'Edit', edit_cadastro_path(cadastro) %></a>
+                          <a href="#"><%= link_to 'Destroy', cadastro, method: :delete, data: { confirm: 'Are you sure?' } %></a>
+                          
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <% end %>
+            <br>
+            
+            </div>
+      </div>
+      
+    </nav>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+  
+</body>
+</html>
+
