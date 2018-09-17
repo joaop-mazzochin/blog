@@ -1,0 +1,33 @@
+default: &default
+  adapter: postgresql
+  encoding: unicode
+
+  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+
+development:
+  <<: *default
+  database: Agend_development
+  encoding: unicode
+  database: Agend
+  pool: 5
+  username: postgres
+  password: 123
+  host: localhost
+
+
+test:
+  <<: *default
+  database: Agend_test
+  adapter: postgresql
+  encoding: unicode
+  pool: 5
+  username: postgres
+  password: 123
+  host: localhost
+
+production:
+  <<: *default
+  database: Agend_production
+  username: Agend
+  password: <%= ENV['AGEND_DATABASE_PASSWORD'] %>
+
